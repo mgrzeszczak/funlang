@@ -19,8 +19,8 @@ type FunlangVisitor interface {
 	// Visit a parse tree produced by FunlangParser#task.
 	VisitTask(ctx *TaskContext) interface{}
 
-	// Visit a parse tree produced by FunlangParser#args.
-	VisitArgs(ctx *ArgsContext) interface{}
+	// Visit a parse tree produced by FunlangParser#parameterList.
+	VisitParameterList(ctx *ParameterListContext) interface{}
 
 	// Visit a parse tree produced by FunlangParser#parameters.
 	VisitParameters(ctx *ParametersContext) interface{}
@@ -34,8 +34,11 @@ type FunlangVisitor interface {
 	// Visit a parse tree produced by FunlangParser#function.
 	VisitFunction(ctx *FunctionContext) interface{}
 
-	// Visit a parse tree produced by FunlangParser#functions.
-	VisitFunctions(ctx *FunctionsContext) interface{}
+	// Visit a parse tree produced by FunlangParser#innerFunctions.
+	VisitInnerFunctions(ctx *InnerFunctionsContext) interface{}
+
+	// Visit a parse tree produced by FunlangParser#functionList.
+	VisitFunctionList(ctx *FunctionListContext) interface{}
 
 	// Visit a parse tree produced by FunlangParser#composition.
 	VisitComposition(ctx *CompositionContext) interface{}

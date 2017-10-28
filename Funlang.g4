@@ -13,21 +13,21 @@ tasks
     ;
 
 task
-    : name parameters ';'
+    : name parameters Semicolon
     ;
 
-args
+parameterList
     : number
-    | number ',' args
+    | number Comma parameterList
     ;
 
 parameters
     : OpenParam CloseParam
-    | OpenParam args CloseParam
+    | OpenParam parameterList CloseParam
     ;
 
 definition
-    : name '=' function ';'
+    : name AssignmentOperator function Semicolon
     ;
 
 name
@@ -36,16 +36,21 @@ name
 
 function
     : composition
-    | function '|' OpenParam functions CloseParam
+    | function CompositionOperator innerFunctions
     ;
 
-functions
+innerFunctions
+    : OpenParam functionList CloseParam
+    | function
+    ;
+
+functionList
     : function
-    | function ',' functions
+    | function Comma functionList
     ;
 
 composition
-    : composition '&' primitiveRecursion
+    : composition PrimitiveRecursionOperator primitiveRecursion
     | primitiveRecursion
     ;
 
@@ -57,23 +62,47 @@ primitiveRecursion
     | name
     ;
 
+zero
+    : 'Z' OpenParam number CloseParam
+    ;
+
+successor
+    : 'S'
+    ;
+
+projection
+    : 'P' OpenParam number ',' number CloseParam
+    ;
+
+number
+    : Digit+
+    ;
+
+AssignmentOperator
+    : '='
+    ;
+
+CompositionOperator
+    : '|'
+    ;
+
+PrimitiveRecursionOperator
+    : '&'
+    ;
+
+Comma
+    : ','
+    ;
+
+Semicolon
+    : ';'
+    ;
+
 OpenParam
     : '('
     ;
 CloseParam
     : ')'
-    ;
-
-zero
-    : '$Z' OpenParam number CloseParam
-    ;
-
-successor
-    : '$S'
-    ;
-
-projection
-    : '$P' OpenParam number ',' number CloseParam
     ;
 
 Nondigit
@@ -82,10 +111,6 @@ Nondigit
 
 Digit
     : [0-9]
-    ;
-
-number
-    : Digit+
     ;
 
 Whitespace

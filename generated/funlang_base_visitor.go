@@ -23,7 +23,7 @@ func (v *BaseFunlangVisitor) VisitTask(ctx *TaskContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFunlangVisitor) VisitArgs(ctx *ArgsContext) interface{} {
+func (v *BaseFunlangVisitor) VisitParameterList(ctx *ParameterListContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -43,7 +43,11 @@ func (v *BaseFunlangVisitor) VisitFunction(ctx *FunctionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFunlangVisitor) VisitFunctions(ctx *FunctionsContext) interface{} {
+func (v *BaseFunlangVisitor) VisitInnerFunctions(ctx *InnerFunctionsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFunlangVisitor) VisitFunctionList(ctx *FunctionListContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

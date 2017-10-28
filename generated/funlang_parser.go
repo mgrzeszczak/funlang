@@ -15,79 +15,83 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 18, 142,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 18, 148,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
-	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 3, 2, 3,
-	2, 3, 2, 3, 3, 7, 3, 39, 10, 3, 12, 3, 14, 3, 42, 11, 3, 3, 4, 7, 4, 45,
-	10, 4, 12, 4, 14, 4, 48, 11, 4, 3, 5, 3, 5, 3, 5, 3, 5, 3, 6, 3, 6, 3,
-	6, 3, 6, 3, 6, 5, 6, 59, 10, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 5,
-	7, 67, 10, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 7, 9, 76, 10, 9,
-	12, 9, 14, 9, 79, 11, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10,
-	3, 10, 3, 10, 7, 10, 90, 10, 10, 12, 10, 14, 10, 93, 11, 10, 3, 11, 3,
-	11, 3, 11, 3, 11, 3, 11, 5, 11, 100, 10, 11, 3, 12, 3, 12, 3, 12, 3, 12,
-	3, 12, 3, 12, 7, 12, 108, 10, 12, 12, 12, 14, 12, 111, 11, 12, 3, 13, 3,
-	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 5, 13, 121, 10, 13, 3, 14,
-	3, 14, 3, 14, 3, 14, 3, 14, 3, 15, 3, 15, 3, 16, 3, 16, 3, 16, 3, 16, 3,
-	16, 3, 16, 3, 16, 3, 17, 6, 17, 138, 10, 17, 13, 17, 14, 17, 139, 3, 17,
-	2, 4, 18, 22, 18, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30,
-	32, 2, 3, 3, 2, 13, 14, 2, 138, 2, 34, 3, 2, 2, 2, 4, 40, 3, 2, 2, 2, 6,
-	46, 3, 2, 2, 2, 8, 49, 3, 2, 2, 2, 10, 58, 3, 2, 2, 2, 12, 66, 3, 2, 2,
-	2, 14, 68, 3, 2, 2, 2, 16, 73, 3, 2, 2, 2, 18, 80, 3, 2, 2, 2, 20, 99,
-	3, 2, 2, 2, 22, 101, 3, 2, 2, 2, 24, 120, 3, 2, 2, 2, 26, 122, 3, 2, 2,
-	2, 28, 127, 3, 2, 2, 2, 30, 129, 3, 2, 2, 2, 32, 137, 3, 2, 2, 2, 34, 35,
-	5, 4, 3, 2, 35, 36, 5, 6, 4, 2, 36, 3, 3, 2, 2, 2, 37, 39, 5, 14, 8, 2,
-	38, 37, 3, 2, 2, 2, 39, 42, 3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 40, 41, 3,
-	2, 2, 2, 41, 5, 3, 2, 2, 2, 42, 40, 3, 2, 2, 2, 43, 45, 5, 8, 5, 2, 44,
-	43, 3, 2, 2, 2, 45, 48, 3, 2, 2, 2, 46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2,
-	2, 47, 7, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 50, 5, 16, 9, 2, 50, 51,
-	5, 12, 7, 2, 51, 52, 7, 3, 2, 2, 52, 9, 3, 2, 2, 2, 53, 59, 5, 32, 17,
-	2, 54, 55, 5, 32, 17, 2, 55, 56, 7, 4, 2, 2, 56, 57, 5, 10, 6, 2, 57, 59,
-	3, 2, 2, 2, 58, 53, 3, 2, 2, 2, 58, 54, 3, 2, 2, 2, 59, 11, 3, 2, 2, 2,
-	60, 61, 7, 11, 2, 2, 61, 67, 7, 12, 2, 2, 62, 63, 7, 11, 2, 2, 63, 64,
-	5, 10, 6, 2, 64, 65, 7, 12, 2, 2, 65, 67, 3, 2, 2, 2, 66, 60, 3, 2, 2,
-	2, 66, 62, 3, 2, 2, 2, 67, 13, 3, 2, 2, 2, 68, 69, 5, 16, 9, 2, 69, 70,
-	7, 5, 2, 2, 70, 71, 5, 18, 10, 2, 71, 72, 7, 3, 2, 2, 72, 15, 3, 2, 2,
-	2, 73, 77, 7, 13, 2, 2, 74, 76, 9, 2, 2, 2, 75, 74, 3, 2, 2, 2, 76, 79,
-	3, 2, 2, 2, 77, 75, 3, 2, 2, 2, 77, 78, 3, 2, 2, 2, 78, 17, 3, 2, 2, 2,
-	79, 77, 3, 2, 2, 2, 80, 81, 8, 10, 1, 2, 81, 82, 5, 22, 12, 2, 82, 91,
-	3, 2, 2, 2, 83, 84, 12, 3, 2, 2, 84, 85, 7, 6, 2, 2, 85, 86, 7, 11, 2,
-	2, 86, 87, 5, 20, 11, 2, 87, 88, 7, 12, 2, 2, 88, 90, 3, 2, 2, 2, 89, 83,
-	3, 2, 2, 2, 90, 93, 3, 2, 2, 2, 91, 89, 3, 2, 2, 2, 91, 92, 3, 2, 2, 2,
-	92, 19, 3, 2, 2, 2, 93, 91, 3, 2, 2, 2, 94, 100, 5, 18, 10, 2, 95, 96,
-	5, 18, 10, 2, 96, 97, 7, 4, 2, 2, 97, 98, 5, 20, 11, 2, 98, 100, 3, 2,
-	2, 2, 99, 94, 3, 2, 2, 2, 99, 95, 3, 2, 2, 2, 100, 21, 3, 2, 2, 2, 101,
-	102, 8, 12, 1, 2, 102, 103, 5, 24, 13, 2, 103, 109, 3, 2, 2, 2, 104, 105,
-	12, 4, 2, 2, 105, 106, 7, 7, 2, 2, 106, 108, 5, 24, 13, 2, 107, 104, 3,
-	2, 2, 2, 108, 111, 3, 2, 2, 2, 109, 107, 3, 2, 2, 2, 109, 110, 3, 2, 2,
-	2, 110, 23, 3, 2, 2, 2, 111, 109, 3, 2, 2, 2, 112, 113, 7, 11, 2, 2, 113,
-	114, 5, 18, 10, 2, 114, 115, 7, 12, 2, 2, 115, 121, 3, 2, 2, 2, 116, 121,
-	5, 26, 14, 2, 117, 121, 5, 28, 15, 2, 118, 121, 5, 30, 16, 2, 119, 121,
-	5, 16, 9, 2, 120, 112, 3, 2, 2, 2, 120, 116, 3, 2, 2, 2, 120, 117, 3, 2,
-	2, 2, 120, 118, 3, 2, 2, 2, 120, 119, 3, 2, 2, 2, 121, 25, 3, 2, 2, 2,
-	122, 123, 7, 8, 2, 2, 123, 124, 7, 11, 2, 2, 124, 125, 5, 32, 17, 2, 125,
-	126, 7, 12, 2, 2, 126, 27, 3, 2, 2, 2, 127, 128, 7, 9, 2, 2, 128, 29, 3,
-	2, 2, 2, 129, 130, 7, 10, 2, 2, 130, 131, 7, 11, 2, 2, 131, 132, 5, 32,
-	17, 2, 132, 133, 7, 4, 2, 2, 133, 134, 5, 32, 17, 2, 134, 135, 7, 12, 2,
-	2, 135, 31, 3, 2, 2, 2, 136, 138, 7, 14, 2, 2, 137, 136, 3, 2, 2, 2, 138,
-	139, 3, 2, 2, 2, 139, 137, 3, 2, 2, 2, 139, 140, 3, 2, 2, 2, 140, 33, 3,
-	2, 2, 2, 12, 40, 46, 58, 66, 77, 91, 99, 109, 120, 139,
+	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
+	18, 3, 2, 3, 2, 3, 2, 3, 3, 7, 3, 41, 10, 3, 12, 3, 14, 3, 44, 11, 3, 3,
+	4, 7, 4, 47, 10, 4, 12, 4, 14, 4, 50, 11, 4, 3, 5, 3, 5, 3, 5, 3, 5, 3,
+	6, 3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 61, 10, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3,
+	7, 3, 7, 5, 7, 69, 10, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 7,
+	9, 78, 10, 9, 12, 9, 14, 9, 81, 11, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10,
+	3, 10, 7, 10, 89, 10, 10, 12, 10, 14, 10, 92, 11, 10, 3, 11, 3, 11, 3,
+	11, 3, 11, 3, 11, 5, 11, 99, 10, 11, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12,
+	5, 12, 106, 10, 12, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 7, 13, 114,
+	10, 13, 12, 13, 14, 13, 117, 11, 13, 3, 14, 3, 14, 3, 14, 3, 14, 3, 14,
+	3, 14, 3, 14, 3, 14, 5, 14, 127, 10, 14, 3, 15, 3, 15, 3, 15, 3, 15, 3,
+	15, 3, 16, 3, 16, 3, 17, 3, 17, 3, 17, 3, 17, 3, 17, 3, 17, 3, 17, 3, 18,
+	6, 18, 144, 10, 18, 13, 18, 14, 18, 145, 3, 18, 2, 4, 18, 24, 19, 2, 4,
+	6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 2, 3, 3, 2, 13,
+	14, 2, 144, 2, 36, 3, 2, 2, 2, 4, 42, 3, 2, 2, 2, 6, 48, 3, 2, 2, 2, 8,
+	51, 3, 2, 2, 2, 10, 60, 3, 2, 2, 2, 12, 68, 3, 2, 2, 2, 14, 70, 3, 2, 2,
+	2, 16, 75, 3, 2, 2, 2, 18, 82, 3, 2, 2, 2, 20, 98, 3, 2, 2, 2, 22, 105,
+	3, 2, 2, 2, 24, 107, 3, 2, 2, 2, 26, 126, 3, 2, 2, 2, 28, 128, 3, 2, 2,
+	2, 30, 133, 3, 2, 2, 2, 32, 135, 3, 2, 2, 2, 34, 143, 3, 2, 2, 2, 36, 37,
+	5, 4, 3, 2, 37, 38, 5, 6, 4, 2, 38, 3, 3, 2, 2, 2, 39, 41, 5, 14, 8, 2,
+	40, 39, 3, 2, 2, 2, 41, 44, 3, 2, 2, 2, 42, 40, 3, 2, 2, 2, 42, 43, 3,
+	2, 2, 2, 43, 5, 3, 2, 2, 2, 44, 42, 3, 2, 2, 2, 45, 47, 5, 8, 5, 2, 46,
+	45, 3, 2, 2, 2, 47, 50, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 48, 49, 3, 2, 2,
+	2, 49, 7, 3, 2, 2, 2, 50, 48, 3, 2, 2, 2, 51, 52, 5, 16, 9, 2, 52, 53,
+	5, 12, 7, 2, 53, 54, 7, 10, 2, 2, 54, 9, 3, 2, 2, 2, 55, 61, 5, 34, 18,
+	2, 56, 57, 5, 34, 18, 2, 57, 58, 7, 9, 2, 2, 58, 59, 5, 10, 6, 2, 59, 61,
+	3, 2, 2, 2, 60, 55, 3, 2, 2, 2, 60, 56, 3, 2, 2, 2, 61, 11, 3, 2, 2, 2,
+	62, 63, 7, 11, 2, 2, 63, 69, 7, 12, 2, 2, 64, 65, 7, 11, 2, 2, 65, 66,
+	5, 10, 6, 2, 66, 67, 7, 12, 2, 2, 67, 69, 3, 2, 2, 2, 68, 62, 3, 2, 2,
+	2, 68, 64, 3, 2, 2, 2, 69, 13, 3, 2, 2, 2, 70, 71, 5, 16, 9, 2, 71, 72,
+	7, 6, 2, 2, 72, 73, 5, 18, 10, 2, 73, 74, 7, 10, 2, 2, 74, 15, 3, 2, 2,
+	2, 75, 79, 7, 13, 2, 2, 76, 78, 9, 2, 2, 2, 77, 76, 3, 2, 2, 2, 78, 81,
+	3, 2, 2, 2, 79, 77, 3, 2, 2, 2, 79, 80, 3, 2, 2, 2, 80, 17, 3, 2, 2, 2,
+	81, 79, 3, 2, 2, 2, 82, 83, 8, 10, 1, 2, 83, 84, 5, 24, 13, 2, 84, 90,
+	3, 2, 2, 2, 85, 86, 12, 3, 2, 2, 86, 87, 7, 7, 2, 2, 87, 89, 5, 20, 11,
+	2, 88, 85, 3, 2, 2, 2, 89, 92, 3, 2, 2, 2, 90, 88, 3, 2, 2, 2, 90, 91,
+	3, 2, 2, 2, 91, 19, 3, 2, 2, 2, 92, 90, 3, 2, 2, 2, 93, 94, 7, 11, 2, 2,
+	94, 95, 5, 22, 12, 2, 95, 96, 7, 12, 2, 2, 96, 99, 3, 2, 2, 2, 97, 99,
+	5, 18, 10, 2, 98, 93, 3, 2, 2, 2, 98, 97, 3, 2, 2, 2, 99, 21, 3, 2, 2,
+	2, 100, 106, 5, 18, 10, 2, 101, 102, 5, 18, 10, 2, 102, 103, 7, 9, 2, 2,
+	103, 104, 5, 22, 12, 2, 104, 106, 3, 2, 2, 2, 105, 100, 3, 2, 2, 2, 105,
+	101, 3, 2, 2, 2, 106, 23, 3, 2, 2, 2, 107, 108, 8, 13, 1, 2, 108, 109,
+	5, 26, 14, 2, 109, 115, 3, 2, 2, 2, 110, 111, 12, 4, 2, 2, 111, 112, 7,
+	8, 2, 2, 112, 114, 5, 26, 14, 2, 113, 110, 3, 2, 2, 2, 114, 117, 3, 2,
+	2, 2, 115, 113, 3, 2, 2, 2, 115, 116, 3, 2, 2, 2, 116, 25, 3, 2, 2, 2,
+	117, 115, 3, 2, 2, 2, 118, 119, 7, 11, 2, 2, 119, 120, 5, 18, 10, 2, 120,
+	121, 7, 12, 2, 2, 121, 127, 3, 2, 2, 2, 122, 127, 5, 28, 15, 2, 123, 127,
+	5, 30, 16, 2, 124, 127, 5, 32, 17, 2, 125, 127, 5, 16, 9, 2, 126, 118,
+	3, 2, 2, 2, 126, 122, 3, 2, 2, 2, 126, 123, 3, 2, 2, 2, 126, 124, 3, 2,
+	2, 2, 126, 125, 3, 2, 2, 2, 127, 27, 3, 2, 2, 2, 128, 129, 7, 3, 2, 2,
+	129, 130, 7, 11, 2, 2, 130, 131, 5, 34, 18, 2, 131, 132, 7, 12, 2, 2, 132,
+	29, 3, 2, 2, 2, 133, 134, 7, 4, 2, 2, 134, 31, 3, 2, 2, 2, 135, 136, 7,
+	5, 2, 2, 136, 137, 7, 11, 2, 2, 137, 138, 5, 34, 18, 2, 138, 139, 7, 9,
+	2, 2, 139, 140, 5, 34, 18, 2, 140, 141, 7, 12, 2, 2, 141, 33, 3, 2, 2,
+	2, 142, 144, 7, 14, 2, 2, 143, 142, 3, 2, 2, 2, 144, 145, 3, 2, 2, 2, 145,
+	143, 3, 2, 2, 2, 145, 146, 3, 2, 2, 2, 146, 35, 3, 2, 2, 2, 13, 42, 48,
+	60, 68, 79, 90, 98, 105, 115, 126, 145,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "';'", "','", "'='", "'|'", "'&'", "'$Z'", "'$S'", "'$P'", "'('", "')'",
+	"", "'Z'", "'S'", "'P'", "'='", "'|'", "'&'", "','", "';'", "'('", "')'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "OpenParam", "CloseParam", "Nondigit",
-	"Digit", "Whitespace", "Newline", "BlockComment", "LineComment",
+	"", "", "", "", "AssignmentOperator", "CompositionOperator", "PrimitiveRecursionOperator",
+	"Comma", "Semicolon", "OpenParam", "CloseParam", "Nondigit", "Digit", "Whitespace",
+	"Newline", "BlockComment", "LineComment",
 }
 
 var ruleNames = []string{
-	"program", "definitions", "tasks", "task", "args", "parameters", "definition",
-	"name", "function", "functions", "composition", "primitiveRecursion", "zero",
-	"successor", "projection", "number",
+	"program", "definitions", "tasks", "task", "parameterList", "parameters",
+	"definition", "name", "function", "innerFunctions", "functionList", "composition",
+	"primitiveRecursion", "zero", "successor", "projection", "number",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -117,23 +121,23 @@ func NewFunlangParser(input antlr.TokenStream) *FunlangParser {
 
 // FunlangParser tokens.
 const (
-	FunlangParserEOF          = antlr.TokenEOF
-	FunlangParserT__0         = 1
-	FunlangParserT__1         = 2
-	FunlangParserT__2         = 3
-	FunlangParserT__3         = 4
-	FunlangParserT__4         = 5
-	FunlangParserT__5         = 6
-	FunlangParserT__6         = 7
-	FunlangParserT__7         = 8
-	FunlangParserOpenParam    = 9
-	FunlangParserCloseParam   = 10
-	FunlangParserNondigit     = 11
-	FunlangParserDigit        = 12
-	FunlangParserWhitespace   = 13
-	FunlangParserNewline      = 14
-	FunlangParserBlockComment = 15
-	FunlangParserLineComment  = 16
+	FunlangParserEOF                        = antlr.TokenEOF
+	FunlangParserT__0                       = 1
+	FunlangParserT__1                       = 2
+	FunlangParserT__2                       = 3
+	FunlangParserAssignmentOperator         = 4
+	FunlangParserCompositionOperator        = 5
+	FunlangParserPrimitiveRecursionOperator = 6
+	FunlangParserComma                      = 7
+	FunlangParserSemicolon                  = 8
+	FunlangParserOpenParam                  = 9
+	FunlangParserCloseParam                 = 10
+	FunlangParserNondigit                   = 11
+	FunlangParserDigit                      = 12
+	FunlangParserWhitespace                 = 13
+	FunlangParserNewline                    = 14
+	FunlangParserBlockComment               = 15
+	FunlangParserLineComment                = 16
 )
 
 // FunlangParser rules.
@@ -142,18 +146,19 @@ const (
 	FunlangParserRULE_definitions        = 1
 	FunlangParserRULE_tasks              = 2
 	FunlangParserRULE_task               = 3
-	FunlangParserRULE_args               = 4
+	FunlangParserRULE_parameterList      = 4
 	FunlangParserRULE_parameters         = 5
 	FunlangParserRULE_definition         = 6
 	FunlangParserRULE_name               = 7
 	FunlangParserRULE_function           = 8
-	FunlangParserRULE_functions          = 9
-	FunlangParserRULE_composition        = 10
-	FunlangParserRULE_primitiveRecursion = 11
-	FunlangParserRULE_zero               = 12
-	FunlangParserRULE_successor          = 13
-	FunlangParserRULE_projection         = 14
-	FunlangParserRULE_number             = 15
+	FunlangParserRULE_innerFunctions     = 9
+	FunlangParserRULE_functionList       = 10
+	FunlangParserRULE_composition        = 11
+	FunlangParserRULE_primitiveRecursion = 12
+	FunlangParserRULE_zero               = 13
+	FunlangParserRULE_successor          = 14
+	FunlangParserRULE_projection         = 15
+	FunlangParserRULE_number             = 16
 )
 
 // IProgramContext is an interface to support dynamic dispatch.
@@ -254,11 +259,11 @@ func (p *FunlangParser) Program() (localctx IProgramContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(32)
+		p.SetState(34)
 		p.Definitions()
 	}
 	{
-		p.SetState(33)
+		p.SetState(35)
 		p.Tasks()
 	}
 
@@ -367,19 +372,19 @@ func (p *FunlangParser) Definitions() (localctx IDefinitionsContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(38)
+	p.SetState(40)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 0, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
 			{
-				p.SetState(35)
+				p.SetState(37)
 				p.Definition()
 			}
 
 		}
-		p.SetState(40)
+		p.SetState(42)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 0, p.GetParserRuleContext())
 	}
@@ -488,17 +493,17 @@ func (p *FunlangParser) Tasks() (localctx ITasksContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(44)
+	p.SetState(46)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == FunlangParserNondigit {
 		{
-			p.SetState(41)
+			p.SetState(43)
 			p.Task()
 		}
 
-		p.SetState(46)
+		p.SetState(48)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -564,6 +569,10 @@ func (s *TaskContext) Parameters() IParametersContext {
 	return t.(IParametersContext)
 }
 
+func (s *TaskContext) Semicolon() antlr.TerminalNode {
+	return s.GetToken(FunlangParserSemicolon, 0)
+}
+
 func (s *TaskContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -604,60 +613,60 @@ func (p *FunlangParser) Task() (localctx ITaskContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(47)
+		p.SetState(49)
 		p.Name()
 	}
 	{
-		p.SetState(48)
+		p.SetState(50)
 		p.Parameters()
 	}
 	{
-		p.SetState(49)
-		p.Match(FunlangParserT__0)
+		p.SetState(51)
+		p.Match(FunlangParserSemicolon)
 	}
 
 	return localctx
 }
 
-// IArgsContext is an interface to support dynamic dispatch.
-type IArgsContext interface {
+// IParameterListContext is an interface to support dynamic dispatch.
+type IParameterListContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsArgsContext differentiates from other interfaces.
-	IsArgsContext()
+	// IsParameterListContext differentiates from other interfaces.
+	IsParameterListContext()
 }
 
-type ArgsContext struct {
+type ParameterListContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyArgsContext() *ArgsContext {
-	var p = new(ArgsContext)
+func NewEmptyParameterListContext() *ParameterListContext {
+	var p = new(ParameterListContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = FunlangParserRULE_args
+	p.RuleIndex = FunlangParserRULE_parameterList
 	return p
 }
 
-func (*ArgsContext) IsArgsContext() {}
+func (*ParameterListContext) IsParameterListContext() {}
 
-func NewArgsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ArgsContext {
-	var p = new(ArgsContext)
+func NewParameterListContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ParameterListContext {
+	var p = new(ParameterListContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = FunlangParserRULE_args
+	p.RuleIndex = FunlangParserRULE_parameterList
 
 	return p
 }
 
-func (s *ArgsContext) GetParser() antlr.Parser { return s.parser }
+func (s *ParameterListContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *ArgsContext) Number() INumberContext {
+func (s *ParameterListContext) Number() INumberContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*INumberContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -667,37 +676,41 @@ func (s *ArgsContext) Number() INumberContext {
 	return t.(INumberContext)
 }
 
-func (s *ArgsContext) Args() IArgsContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IArgsContext)(nil)).Elem(), 0)
+func (s *ParameterListContext) Comma() antlr.TerminalNode {
+	return s.GetToken(FunlangParserComma, 0)
+}
+
+func (s *ParameterListContext) ParameterList() IParameterListContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IParameterListContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IArgsContext)
+	return t.(IParameterListContext)
 }
 
-func (s *ArgsContext) GetRuleContext() antlr.RuleContext {
+func (s *ParameterListContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *ArgsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ParameterListContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *ArgsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *ParameterListContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case FunlangVisitor:
-		return t.VisitArgs(s)
+		return t.VisitParameterList(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *FunlangParser) Args() (localctx IArgsContext) {
-	localctx = NewArgsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, FunlangParserRULE_args)
+func (p *FunlangParser) ParameterList() (localctx IParameterListContext) {
+	localctx = NewParameterListContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 8, FunlangParserRULE_parameterList)
 
 	defer func() {
 		p.ExitRule()
@@ -715,29 +728,29 @@ func (p *FunlangParser) Args() (localctx IArgsContext) {
 		}
 	}()
 
-	p.SetState(56)
+	p.SetState(58)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(51)
+			p.SetState(53)
 			p.Number()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(52)
+			p.SetState(54)
 			p.Number()
 		}
 		{
-			p.SetState(53)
-			p.Match(FunlangParserT__1)
+			p.SetState(55)
+			p.Match(FunlangParserComma)
 		}
 		{
-			p.SetState(54)
-			p.Args()
+			p.SetState(56)
+			p.ParameterList()
 		}
 
 	}
@@ -791,14 +804,14 @@ func (s *ParametersContext) CloseParam() antlr.TerminalNode {
 	return s.GetToken(FunlangParserCloseParam, 0)
 }
 
-func (s *ParametersContext) Args() IArgsContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IArgsContext)(nil)).Elem(), 0)
+func (s *ParametersContext) ParameterList() IParameterListContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IParameterListContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IArgsContext)
+	return t.(IParameterListContext)
 }
 
 func (s *ParametersContext) GetRuleContext() antlr.RuleContext {
@@ -839,32 +852,32 @@ func (p *FunlangParser) Parameters() (localctx IParametersContext) {
 		}
 	}()
 
-	p.SetState(64)
+	p.SetState(66)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
-		{
-			p.SetState(58)
-			p.Match(FunlangParserOpenParam)
-		}
-		{
-			p.SetState(59)
-			p.Match(FunlangParserCloseParam)
-		}
-
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(60)
 			p.Match(FunlangParserOpenParam)
 		}
 		{
 			p.SetState(61)
-			p.Args()
+			p.Match(FunlangParserCloseParam)
 		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(62)
+			p.Match(FunlangParserOpenParam)
+		}
+		{
+			p.SetState(63)
+			p.ParameterList()
+		}
+		{
+			p.SetState(64)
 			p.Match(FunlangParserCloseParam)
 		}
 
@@ -921,6 +934,10 @@ func (s *DefinitionContext) Name() INameContext {
 	return t.(INameContext)
 }
 
+func (s *DefinitionContext) AssignmentOperator() antlr.TerminalNode {
+	return s.GetToken(FunlangParserAssignmentOperator, 0)
+}
+
 func (s *DefinitionContext) Function() IFunctionContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionContext)(nil)).Elem(), 0)
 
@@ -929,6 +946,10 @@ func (s *DefinitionContext) Function() IFunctionContext {
 	}
 
 	return t.(IFunctionContext)
+}
+
+func (s *DefinitionContext) Semicolon() antlr.TerminalNode {
+	return s.GetToken(FunlangParserSemicolon, 0)
 }
 
 func (s *DefinitionContext) GetRuleContext() antlr.RuleContext {
@@ -971,20 +992,20 @@ func (p *FunlangParser) Definition() (localctx IDefinitionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(66)
+		p.SetState(68)
 		p.Name()
 	}
 	{
-		p.SetState(67)
-		p.Match(FunlangParserT__2)
+		p.SetState(69)
+		p.Match(FunlangParserAssignmentOperator)
 	}
 	{
-		p.SetState(68)
+		p.SetState(70)
 		p.function(0)
 	}
 	{
-		p.SetState(69)
-		p.Match(FunlangParserT__0)
+		p.SetState(71)
+		p.Match(FunlangParserSemicolon)
 	}
 
 	return localctx
@@ -1087,16 +1108,16 @@ func (p *FunlangParser) Name() (localctx INameContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(71)
+		p.SetState(73)
 		p.Match(FunlangParserNondigit)
 	}
-	p.SetState(75)
+	p.SetState(77)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(72)
+			p.SetState(74)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == FunlangParserNondigit || _la == FunlangParserDigit) {
@@ -1107,7 +1128,7 @@ func (p *FunlangParser) Name() (localctx INameContext) {
 			}
 
 		}
-		p.SetState(77)
+		p.SetState(79)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 	}
@@ -1173,22 +1194,18 @@ func (s *FunctionContext) Function() IFunctionContext {
 	return t.(IFunctionContext)
 }
 
-func (s *FunctionContext) OpenParam() antlr.TerminalNode {
-	return s.GetToken(FunlangParserOpenParam, 0)
+func (s *FunctionContext) CompositionOperator() antlr.TerminalNode {
+	return s.GetToken(FunlangParserCompositionOperator, 0)
 }
 
-func (s *FunctionContext) Functions() IFunctionsContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionsContext)(nil)).Elem(), 0)
+func (s *FunctionContext) InnerFunctions() IInnerFunctionsContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInnerFunctionsContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IFunctionsContext)
-}
-
-func (s *FunctionContext) CloseParam() antlr.TerminalNode {
-	return s.GetToken(FunlangParserCloseParam, 0)
+	return t.(IInnerFunctionsContext)
 }
 
 func (s *FunctionContext) GetRuleContext() antlr.RuleContext {
@@ -1242,12 +1259,12 @@ func (p *FunlangParser) function(_p int) (localctx IFunctionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(79)
+		p.SetState(81)
 		p.composition(0)
 	}
 
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(89)
+	p.SetState(88)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 
@@ -1259,30 +1276,22 @@ func (p *FunlangParser) function(_p int) (localctx IFunctionContext) {
 			_prevctx = localctx
 			localctx = NewFunctionContext(p, _parentctx, _parentState)
 			p.PushNewRecursionContext(localctx, _startState, FunlangParserRULE_function)
-			p.SetState(81)
+			p.SetState(83)
 
 			if !(p.Precpred(p.GetParserRuleContext(), 1)) {
 				panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 1)", ""))
 			}
 			{
-				p.SetState(82)
-				p.Match(FunlangParserT__3)
-			}
-			{
-				p.SetState(83)
-				p.Match(FunlangParserOpenParam)
-			}
-			{
 				p.SetState(84)
-				p.Functions()
+				p.Match(FunlangParserCompositionOperator)
 			}
 			{
 				p.SetState(85)
-				p.Match(FunlangParserCloseParam)
+				p.InnerFunctions()
 			}
 
 		}
-		p.SetState(91)
+		p.SetState(90)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 	}
@@ -1290,45 +1299,63 @@ func (p *FunlangParser) function(_p int) (localctx IFunctionContext) {
 	return localctx
 }
 
-// IFunctionsContext is an interface to support dynamic dispatch.
-type IFunctionsContext interface {
+// IInnerFunctionsContext is an interface to support dynamic dispatch.
+type IInnerFunctionsContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsFunctionsContext differentiates from other interfaces.
-	IsFunctionsContext()
+	// IsInnerFunctionsContext differentiates from other interfaces.
+	IsInnerFunctionsContext()
 }
 
-type FunctionsContext struct {
+type InnerFunctionsContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyFunctionsContext() *FunctionsContext {
-	var p = new(FunctionsContext)
+func NewEmptyInnerFunctionsContext() *InnerFunctionsContext {
+	var p = new(InnerFunctionsContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = FunlangParserRULE_functions
+	p.RuleIndex = FunlangParserRULE_innerFunctions
 	return p
 }
 
-func (*FunctionsContext) IsFunctionsContext() {}
+func (*InnerFunctionsContext) IsInnerFunctionsContext() {}
 
-func NewFunctionsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FunctionsContext {
-	var p = new(FunctionsContext)
+func NewInnerFunctionsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *InnerFunctionsContext {
+	var p = new(InnerFunctionsContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = FunlangParserRULE_functions
+	p.RuleIndex = FunlangParserRULE_innerFunctions
 
 	return p
 }
 
-func (s *FunctionsContext) GetParser() antlr.Parser { return s.parser }
+func (s *InnerFunctionsContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FunctionsContext) Function() IFunctionContext {
+func (s *InnerFunctionsContext) OpenParam() antlr.TerminalNode {
+	return s.GetToken(FunlangParserOpenParam, 0)
+}
+
+func (s *InnerFunctionsContext) FunctionList() IFunctionListContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionListContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFunctionListContext)
+}
+
+func (s *InnerFunctionsContext) CloseParam() antlr.TerminalNode {
+	return s.GetToken(FunlangParserCloseParam, 0)
+}
+
+func (s *InnerFunctionsContext) Function() IFunctionContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -1338,37 +1365,27 @@ func (s *FunctionsContext) Function() IFunctionContext {
 	return t.(IFunctionContext)
 }
 
-func (s *FunctionsContext) Functions() IFunctionsContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionsContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFunctionsContext)
-}
-
-func (s *FunctionsContext) GetRuleContext() antlr.RuleContext {
+func (s *InnerFunctionsContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *FunctionsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *InnerFunctionsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *FunctionsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *InnerFunctionsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case FunlangVisitor:
-		return t.VisitFunctions(s)
+		return t.VisitInnerFunctions(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *FunlangParser) Functions() (localctx IFunctionsContext) {
-	localctx = NewFunctionsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, FunlangParserRULE_functions)
+func (p *FunlangParser) InnerFunctions() (localctx IInnerFunctionsContext) {
+	localctx = NewInnerFunctionsContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 18, FunlangParserRULE_innerFunctions)
 
 	defer func() {
 		p.ExitRule()
@@ -1386,29 +1403,159 @@ func (p *FunlangParser) Functions() (localctx IFunctionsContext) {
 		}
 	}()
 
-	p.SetState(97)
+	p.SetState(96)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
+			p.SetState(91)
+			p.Match(FunlangParserOpenParam)
+		}
+		{
 			p.SetState(92)
+			p.FunctionList()
+		}
+		{
+			p.SetState(93)
+			p.Match(FunlangParserCloseParam)
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(95)
+			p.function(0)
+		}
+
+	}
+
+	return localctx
+}
+
+// IFunctionListContext is an interface to support dynamic dispatch.
+type IFunctionListContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsFunctionListContext differentiates from other interfaces.
+	IsFunctionListContext()
+}
+
+type FunctionListContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFunctionListContext() *FunctionListContext {
+	var p = new(FunctionListContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = FunlangParserRULE_functionList
+	return p
+}
+
+func (*FunctionListContext) IsFunctionListContext() {}
+
+func NewFunctionListContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FunctionListContext {
+	var p = new(FunctionListContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FunlangParserRULE_functionList
+
+	return p
+}
+
+func (s *FunctionListContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *FunctionListContext) Function() IFunctionContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFunctionContext)
+}
+
+func (s *FunctionListContext) Comma() antlr.TerminalNode {
+	return s.GetToken(FunlangParserComma, 0)
+}
+
+func (s *FunctionListContext) FunctionList() IFunctionListContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionListContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFunctionListContext)
+}
+
+func (s *FunctionListContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FunctionListContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *FunctionListContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FunlangVisitor:
+		return t.VisitFunctionList(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FunlangParser) FunctionList() (localctx IFunctionListContext) {
+	localctx = NewFunctionListContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 20, FunlangParserRULE_functionList)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(103)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(98)
 			p.function(0)
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(93)
+			p.SetState(99)
 			p.function(0)
 		}
 		{
-			p.SetState(94)
-			p.Match(FunlangParserT__1)
+			p.SetState(100)
+			p.Match(FunlangParserComma)
 		}
 		{
-			p.SetState(95)
-			p.Functions()
+			p.SetState(101)
+			p.FunctionList()
 		}
 
 	}
@@ -1474,6 +1621,10 @@ func (s *CompositionContext) Composition() ICompositionContext {
 	return t.(ICompositionContext)
 }
 
+func (s *CompositionContext) PrimitiveRecursionOperator() antlr.TerminalNode {
+	return s.GetToken(FunlangParserPrimitiveRecursionOperator, 0)
+}
+
 func (s *CompositionContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1502,8 +1653,8 @@ func (p *FunlangParser) composition(_p int) (localctx ICompositionContext) {
 	localctx = NewCompositionContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx ICompositionContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
-	_startState := 20
-	p.EnterRecursionRule(localctx, 20, FunlangParserRULE_composition, _p)
+	_startState := 22
+	p.EnterRecursionRule(localctx, 22, FunlangParserRULE_composition, _p)
 
 	defer func() {
 		p.UnrollRecursionContexts(_parentctx)
@@ -1525,14 +1676,14 @@ func (p *FunlangParser) composition(_p int) (localctx ICompositionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(100)
+		p.SetState(106)
 		p.PrimitiveRecursion()
 	}
 
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(107)
+	p.SetState(113)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
@@ -1542,24 +1693,24 @@ func (p *FunlangParser) composition(_p int) (localctx ICompositionContext) {
 			_prevctx = localctx
 			localctx = NewCompositionContext(p, _parentctx, _parentState)
 			p.PushNewRecursionContext(localctx, _startState, FunlangParserRULE_composition)
-			p.SetState(102)
+			p.SetState(108)
 
 			if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 				panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 			}
 			{
-				p.SetState(103)
-				p.Match(FunlangParserT__4)
+				p.SetState(109)
+				p.Match(FunlangParserPrimitiveRecursionOperator)
 			}
 			{
-				p.SetState(104)
+				p.SetState(110)
 				p.PrimitiveRecursion()
 			}
 
 		}
-		p.SetState(109)
+		p.SetState(115)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -1681,7 +1832,7 @@ func (s *PrimitiveRecursionContext) Accept(visitor antlr.ParseTreeVisitor) inter
 
 func (p *FunlangParser) PrimitiveRecursion() (localctx IPrimitiveRecursionContext) {
 	localctx = NewPrimitiveRecursionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, FunlangParserRULE_primitiveRecursion)
+	p.EnterRule(localctx, 24, FunlangParserRULE_primitiveRecursion)
 
 	defer func() {
 		p.ExitRule()
@@ -1699,50 +1850,50 @@ func (p *FunlangParser) PrimitiveRecursion() (localctx IPrimitiveRecursionContex
 		}
 	}()
 
-	p.SetState(118)
+	p.SetState(124)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case FunlangParserOpenParam:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(110)
+			p.SetState(116)
 			p.Match(FunlangParserOpenParam)
 		}
 		{
-			p.SetState(111)
+			p.SetState(117)
 			p.function(0)
 		}
 		{
-			p.SetState(112)
+			p.SetState(118)
 			p.Match(FunlangParserCloseParam)
 		}
 
-	case FunlangParserT__5:
+	case FunlangParserT__0:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(114)
+			p.SetState(120)
 			p.Zero()
 		}
 
-	case FunlangParserT__6:
+	case FunlangParserT__1:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(115)
+			p.SetState(121)
 			p.Successor()
 		}
 
-	case FunlangParserT__7:
+	case FunlangParserT__2:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(116)
+			p.SetState(122)
 			p.Projection()
 		}
 
 	case FunlangParserNondigit:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(117)
+			p.SetState(123)
 			p.Name()
 		}
 
@@ -1829,7 +1980,7 @@ func (s *ZeroContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FunlangParser) Zero() (localctx IZeroContext) {
 	localctx = NewZeroContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, FunlangParserRULE_zero)
+	p.EnterRule(localctx, 26, FunlangParserRULE_zero)
 
 	defer func() {
 		p.ExitRule()
@@ -1849,19 +2000,19 @@ func (p *FunlangParser) Zero() (localctx IZeroContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(120)
-		p.Match(FunlangParserT__5)
+		p.SetState(126)
+		p.Match(FunlangParserT__0)
 	}
 	{
-		p.SetState(121)
+		p.SetState(127)
 		p.Match(FunlangParserOpenParam)
 	}
 	{
-		p.SetState(122)
+		p.SetState(128)
 		p.Number()
 	}
 	{
-		p.SetState(123)
+		p.SetState(129)
 		p.Match(FunlangParserCloseParam)
 	}
 
@@ -1925,7 +2076,7 @@ func (s *SuccessorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FunlangParser) Successor() (localctx ISuccessorContext) {
 	localctx = NewSuccessorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, FunlangParserRULE_successor)
+	p.EnterRule(localctx, 28, FunlangParserRULE_successor)
 
 	defer func() {
 		p.ExitRule()
@@ -1945,8 +2096,8 @@ func (p *FunlangParser) Successor() (localctx ISuccessorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(125)
-		p.Match(FunlangParserT__6)
+		p.SetState(131)
+		p.Match(FunlangParserT__1)
 	}
 
 	return localctx
@@ -2041,7 +2192,7 @@ func (s *ProjectionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FunlangParser) Projection() (localctx IProjectionContext) {
 	localctx = NewProjectionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, FunlangParserRULE_projection)
+	p.EnterRule(localctx, 30, FunlangParserRULE_projection)
 
 	defer func() {
 		p.ExitRule()
@@ -2061,27 +2212,27 @@ func (p *FunlangParser) Projection() (localctx IProjectionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(127)
-		p.Match(FunlangParserT__7)
+		p.SetState(133)
+		p.Match(FunlangParserT__2)
 	}
 	{
-		p.SetState(128)
+		p.SetState(134)
 		p.Match(FunlangParserOpenParam)
 	}
 	{
-		p.SetState(129)
+		p.SetState(135)
 		p.Number()
 	}
 	{
-		p.SetState(130)
-		p.Match(FunlangParserT__1)
+		p.SetState(136)
+		p.Match(FunlangParserComma)
 	}
 	{
-		p.SetState(131)
+		p.SetState(137)
 		p.Number()
 	}
 	{
-		p.SetState(132)
+		p.SetState(138)
 		p.Match(FunlangParserCloseParam)
 	}
 
@@ -2154,7 +2305,7 @@ func (s *NumberContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FunlangParser) Number() (localctx INumberContext) {
 	localctx = NewNumberContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, FunlangParserRULE_number)
+	p.EnterRule(localctx, 32, FunlangParserRULE_number)
 	var _la int
 
 	defer func() {
@@ -2174,17 +2325,17 @@ func (p *FunlangParser) Number() (localctx INumberContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(135)
+	p.SetState(141)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = _la == FunlangParserDigit {
 		{
-			p.SetState(134)
+			p.SetState(140)
 			p.Match(FunlangParserDigit)
 		}
 
-		p.SetState(137)
+		p.SetState(143)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -2201,7 +2352,7 @@ func (p *FunlangParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex
 		}
 		return p.Function_Sempred(t, predIndex)
 
-	case 10:
+	case 11:
 		var t *CompositionContext = nil
 		if localctx != nil {
 			t = localctx.(*CompositionContext)

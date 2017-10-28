@@ -109,7 +109,6 @@ func (g *Function) Recurse(h *Function) *Function {
 		g.name+"_r_"+h.name,
 		domain,
 		func(args []int) int {
-			fmt.Printf("Calculating %v for %v\n", g.name, args)
 			hargs := make([]int, domain+1)
 			n := args[domain-1]
 			values := make([]int, n+1)
@@ -120,11 +119,10 @@ func (g *Function) Recurse(h *Function) *Function {
 					v = g.Call(args[:g.domain])
 				} else {
 					copy(hargs[:g.domain], args[:g.domain])
-					hargs[g.domain] = i-1   // TODO
-					hargs[g.domain+1] = values[i-1] // TODO
+					hargs[g.domain] = i-1
+					hargs[g.domain+1] = values[i-1]
 					v = h.Call(hargs)
 				}
-				fmt.Println(v)
 				values[i] = v
 				i++
 			}

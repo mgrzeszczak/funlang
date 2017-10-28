@@ -25,15 +25,15 @@ func (i *FunlangInterpreter) Execute(ctx *generated.ProgramContext) {
 		task := child.(*generated.TaskContext)
 		name := task.Name().GetText()
 		input := []int{}
-		args := task.Parameters().(*generated.ParametersContext).Args()
+		args := task.Parameters().(*generated.ParametersContext).ParameterList()
 		for args != nil {
-			argsctx := args.(*generated.ArgsContext)
+			argsctx := args.(*generated.ParameterListContext)
 			n, e := strconv.Atoi(argsctx.Number().GetText())
 			if e != nil {
 				panic(e)
 			}
 			input = append(input, n)
-			args = argsctx.Args()
+			args = argsctx.ParameterList()
 		}
 		f, ok := i.functions[name];
 		if !ok {
@@ -54,14 +54,20 @@ func (i *FunlangInterpreter) visitFunction(f *generated.FunctionContext) *Functi
 	fmt.Printf("Visiting function: %v\n", f.GetText())
 	if f.Function() == nil {
 		return i.visitComposition(f.Composition().(*generated.CompositionContext))
-	} else {
+	} else  {
 		left := i.visitFunction(f.Function().(*generated.FunctionContext))
 		funs := []*Function{}
-		funsCtx := f.Functions()
-		for funsCtx != nil {
-			fsctx := funsCtx.(*generated.FunctionsContext)
-			funs = append(funs, i.visitFunction(fsctx.Function().(*generated.FunctionContext)))
-			funsCtx = fsctx.Functions()
+
+		innerf := f.InnerFunctions().(*generated.InnerFunctionsContext).Function()
+		if  innerf != nil {
+			funs = append(funs, i.visitFunction(innerf.(*generated.FunctionContext)))
+		} else {
+			funsCtx := f.InnerFunctions().(*generated.InnerFunctionsContext).FunctionList()
+			for funsCtx != nil {
+				fsctx := funsCtx.(*generated.FunctionListContext)
+				funs = append(funs, i.visitFunction(fsctx.Function().(*generated.FunctionContext)))
+				funsCtx = fsctx.FunctionList()
+			}
 		}
 		return left.Compose(funs)
 	}
