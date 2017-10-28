@@ -47,6 +47,25 @@ absdiff(10,5);
 absdiff(5,10);
 ```
 
+Running this script gives the following result:
+```
+$ ./run.sh
+add[100 200] = 300
+double[2] = 4
+multiply[2 5] = 10
+power[2 10] = 1024
+predecessor[2] = 1
+sign[0] = 0
+sign[1] = 1
+sign[100] = 1
+nsign[0] = 1
+nsign[1] = 0
+ld[10 5] = 5
+ld[9 10] = 0
+absdiff[10 5] = 5
+absdiff[5 10] = 5
+```
+
 # License
 ```
 MIT License
