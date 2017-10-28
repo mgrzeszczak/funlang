@@ -1,0 +1,7 @@
+// definitions
+add =  $P(1,0) & ($S | ($P(3,2)));
+double = add |($P(1,0),$P(1,0));
+addDoubled = add | (double | ($P(2,0)), double | ($P(2,1)));
+// executions
+add(100,200);
+addDoubled(100,200);
