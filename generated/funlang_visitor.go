@@ -10,14 +10,11 @@ type FunlangVisitor interface {
 	// Visit a parse tree produced by FunlangParser#program.
 	VisitProgram(ctx *ProgramContext) interface{}
 
-	// Visit a parse tree produced by FunlangParser#definitions.
-	VisitDefinitions(ctx *DefinitionsContext) interface{}
+	// Visit a parse tree produced by FunlangParser#statement.
+	VisitStatement(ctx *StatementContext) interface{}
 
-	// Visit a parse tree produced by FunlangParser#tasks.
-	VisitTasks(ctx *TasksContext) interface{}
-
-	// Visit a parse tree produced by FunlangParser#task.
-	VisitTask(ctx *TaskContext) interface{}
+	// Visit a parse tree produced by FunlangParser#execution.
+	VisitExecution(ctx *ExecutionContext) interface{}
 
 	// Visit a parse tree produced by FunlangParser#parameterList.
 	VisitParameterList(ctx *ParameterListContext) interface{}

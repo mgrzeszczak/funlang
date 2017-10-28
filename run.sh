@@ -1,4 +1,4 @@
 #!/bin/bash
 
 go build
-./funlang -file example.fl
+./funlang example.fl

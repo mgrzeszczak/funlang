@@ -1,19 +1,17 @@
 grammar Funlang;
 
 program
-    : definitions tasks
+    : (statement Semicolon)+
+    |
     ;
 
-definitions
-    : definition*
+statement
+    : definition
+    | execution
     ;
 
-tasks
-    : task*
-    ;
-
-task
-    : name parameters Semicolon
+execution
+    : name parameters
     ;
 
 parameterList
@@ -27,7 +25,7 @@ parameters
     ;
 
 definition
-    : name AssignmentOperator function Semicolon
+    : Define name AssignmentOperator function
     ;
 
 name
@@ -76,6 +74,10 @@ projection
 
 number
     : Digit+
+    ;
+
+Define
+    : 'def'
     ;
 
 AssignmentOperator

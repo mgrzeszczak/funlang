@@ -16,50 +16,54 @@ func NewFunlangInterpreter() *FunlangInterpreter {
 	}
 }
 
-func (i *FunlangInterpreter) Execute(ctx *generated.ProgramContext) {
-	for _, child := range ctx.Definitions().GetChildren() {
-		i.visitDefinition(child.(*generated.DefinitionContext))
+func (i *FunlangInterpreter) visitExecution(ctx *generated.ExecutionContext) {
+	name := ctx.Name().GetText()
+	input := []int{}
+	args := ctx.Parameters().(*generated.ParametersContext).ParameterList()
+	for args != nil {
+		argsCtx := args.(*generated.ParameterListContext)
+		n, e := strconv.Atoi(argsCtx.Number().GetText())
+		if e != nil {
+			panic(e)
+		}
+		input = append(input, n)
+		args = argsCtx.ParameterList()
 	}
+	f, ok := i.functions[name];
+	if !ok {
+		panic(fmt.Sprintf("Function %v is not defined", name))
+	}
+	fmt.Printf("%v%v = %v\n", name, input, f.Call(input))
+}
 
-	for _, child := range ctx.Tasks().GetChildren() {
-		task := child.(*generated.TaskContext)
-		name := task.Name().GetText()
-		input := []int{}
-		args := task.Parameters().(*generated.ParametersContext).ParameterList()
-		for args != nil {
-			argsctx := args.(*generated.ParameterListContext)
-			n, e := strconv.Atoi(argsctx.Number().GetText())
-			if e != nil {
-				panic(e)
-			}
-			input = append(input, n)
-			args = argsctx.ParameterList()
+func (i *FunlangInterpreter) Run(ctx *generated.ProgramContext) {
+	for _, stmt := range ctx.AllStatement() {
+		stmtCtx := stmt.(*generated.StatementContext)
+		if stmtCtx.Definition() != nil {
+			i.visitDefinition(stmtCtx.Definition().(*generated.DefinitionContext))
+		} else {
+			i.visitExecution(stmtCtx.Execution().(*generated.ExecutionContext))
 		}
-		f, ok := i.functions[name];
-		if !ok {
-			panic(fmt.Sprintf("Function %v is not defined", name))
-		}
-		fmt.Printf("%v = %v\n", task.GetText(), f.Call(input))
 	}
 }
 
 func (i *FunlangInterpreter) visitDefinition(d *generated.DefinitionContext) {
-	fmt.Printf("Visiting definition: %v\n", d.GetText())
+	//fmt.Printf("Visiting definition: %v\n", d.GetText())
 	name := d.Name().GetText()
 	function := i.visitFunction(d.Function().(*generated.FunctionContext))
 	i.functions[name] = function
 }
 
 func (i *FunlangInterpreter) visitFunction(f *generated.FunctionContext) *Function {
-	fmt.Printf("Visiting function: %v\n", f.GetText())
+	//fmt.Printf("Visiting function: %v\n", f.GetText())
 	if f.Function() == nil {
 		return i.visitComposition(f.Composition().(*generated.CompositionContext))
-	} else  {
+	} else {
 		left := i.visitFunction(f.Function().(*generated.FunctionContext))
 		funs := []*Function{}
 
 		innerf := f.InnerFunctions().(*generated.InnerFunctionsContext).Function()
-		if  innerf != nil {
+		if innerf != nil {
 			funs = append(funs, i.visitFunction(innerf.(*generated.FunctionContext)))
 		} else {
 			funsCtx := f.InnerFunctions().(*generated.InnerFunctionsContext).FunctionList()
@@ -74,19 +78,18 @@ func (i *FunlangInterpreter) visitFunction(f *generated.FunctionContext) *Functi
 }
 
 func (i *FunlangInterpreter) visitComposition(f *generated.CompositionContext) *Function {
-	fmt.Printf("Visiting composition: %v\n", f.GetText())
+	//fmt.Printf("Visiting composition: %v\n", f.GetText())
 	right := i.visitPrimitiveRecursion(f.PrimitiveRecursion().(*generated.PrimitiveRecursionContext))
 	if f.Composition() == nil {
 		return right
 	} else {
 		left := i.visitComposition(f.Composition().(*generated.CompositionContext))
-		fmt.Printf("g(%v), h(%v)\n", left.domain, right.domain)
 		return left.Recurse(right)
 	}
 }
 
 func (i *FunlangInterpreter) visitPrimitiveRecursion(f *generated.PrimitiveRecursionContext) *Function {
-	fmt.Printf("Visiting primitiveRecursion: %v\n", f.GetText())
+	//fmt.Printf("Visiting primitiveRecursion: %v\n", f.GetText())
 	if f.OpenParam() != nil {
 		return i.visitFunction(f.Function().(*generated.FunctionContext))
 	} else if f.Name() != nil {
@@ -102,7 +105,7 @@ func (i *FunlangInterpreter) visitPrimitiveRecursion(f *generated.PrimitiveRecur
 }
 
 func (i *FunlangInterpreter) visitZero(f *generated.ZeroContext) *Function {
-	fmt.Printf("Visiting zero: %v\n", f.GetText())
+	//fmt.Printf("Visiting zero: %v\n", f.GetText())
 	domain, e := strconv.Atoi(f.Number().GetText())
 	if e != nil {
 		panic(e)
@@ -111,12 +114,12 @@ func (i *FunlangInterpreter) visitZero(f *generated.ZeroContext) *Function {
 }
 
 func (i *FunlangInterpreter) visitSuccessor(f *generated.SuccessorContext) *Function {
-	fmt.Printf("Visiting successor: %v\n", f.GetText())
+	//fmt.Printf("Visiting successor: %v\n", f.GetText())
 	return Successor()
 }
 
 func (i *FunlangInterpreter) visitProjection(f *generated.ProjectionContext) *Function {
-	fmt.Printf("Visiting projection: %v\n", f.GetText())
+	//fmt.Printf("Visiting projection: %v\n", f.GetText())
 	from, e := strconv.Atoi(f.Number(0).GetText())
 	if e != nil {
 		panic(e)

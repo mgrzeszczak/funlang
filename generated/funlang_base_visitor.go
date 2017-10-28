@@ -11,15 +11,11 @@ func (v *BaseFunlangVisitor) VisitProgram(ctx *ProgramContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFunlangVisitor) VisitDefinitions(ctx *DefinitionsContext) interface{} {
+func (v *BaseFunlangVisitor) VisitStatement(ctx *StatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFunlangVisitor) VisitTasks(ctx *TasksContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseFunlangVisitor) VisitTask(ctx *TaskContext) interface{} {
+func (v *BaseFunlangVisitor) VisitExecution(ctx *ExecutionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
