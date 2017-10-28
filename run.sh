@@ -1,4 +1,6 @@
 #!/bin/bash
 
 go build
-./funlang example.fl
+mkdir -p binaries
+mv funlang binaries
+./binaries/funlang example.fl
