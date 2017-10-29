@@ -2,6 +2,9 @@
 
 Programming language that allows to define primitive recursive functions and calculate them.
 
+[**Try the live demo**](https://mgrzeszczak.github.io/funlang)
+
+
 # Operators
 * __|__ - functional composition
 * __&__ - primitive recursion
