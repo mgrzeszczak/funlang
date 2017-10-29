@@ -1,0 +1,30 @@
+// definitions
+def add =  P(1,0) & (S | P(3,2));
+add(100,200);
+
+def addplusone = S | add;
+addplusone(10,20);
+//def double = add | ( P(1,0), P(1,0) );
+//double(2);
+
+//def multiply = Z(1) & (add | ( P(3,2), P(3,0) ) );
+//def power = (S | Z(1)) & (multiply | (P(3,2), P(3,0)));
+//def predecessor = Z(0) & P(2,0);
+def sign = Z(0) & ( S | Z(2));
+def nsign = (S | Z(0)) & (Z(2));
+//def ld = P(1,0) & (predecessor | P(3,2));
+//def absdiff = add | (ld | (P(2,0),P(2,1)), ld | (P(2,1),P(2,0)));
+
+// executions
+//multiply(2,5);
+//power(2,10);
+//predecessor(2);
+sign(0);
+sign(1);
+sign(100);
+nsign(0);
+nsign(1);
+//ld(10,5);
+//ld(9,10);
+//absdiff(10,5);
+//absdiff(5,10);
