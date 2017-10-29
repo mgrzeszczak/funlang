@@ -1,7 +1,7 @@
 package interpreter
 
 import (
-	"github.com/mgrzeszczak/funlang/src/generatedated"
+	"github.com/mgrzeszczak/funlang/src/generated"
 	"fmt"
 	"strconv"
 )

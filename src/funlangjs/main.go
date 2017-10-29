@@ -14,7 +14,6 @@ type WebConsole struct {
 }
 
 func (c *WebConsole) Log(format string, args ...interface{}) {
-	fmt.Printf(format, args...)
 	text := fmt.Sprintf(format, args...)
 	text = strings.Replace(text, "[", "(", 1)
 	text = strings.Replace(text, "]", ")", 1)

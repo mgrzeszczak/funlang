@@ -24,10 +24,14 @@ export default class Root extends Component {
 
   render(){
     return (
-      <div>
-        <Editor onChange={this.onEditorChange.bind(this)}/>
-        <WebConsole onExecute={this.onExecute.bind(this)}/>
-      </div>
+        <div className="container">
+          <div className="editor">
+            <Editor onChange={this.onEditorChange.bind(this)}/>
+          </div>
+          <div className="console">
+            <WebConsole onExecute={this.onExecute.bind(this)}/>
+          </div>
+        </div>
     )
   }
 }

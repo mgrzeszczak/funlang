@@ -19,6 +19,7 @@ export default class WebConsole extends Component {
     this.promptLabel = () => {
   		return ">> ";
   	}
+
   }
 
   render(){
