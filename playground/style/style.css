@@ -15,15 +15,17 @@ html, body { width:100%; height:100%; }
 }
 
 .editor {
-  vertical-align: top;
-  display: inline-block;
-  width: 75%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ReactCodeMirror {
   height: 100%;
 }
 
 .console {
-  vertical-align: top;
-  display: inline-block;
-  width: 25%;
-  height: 100%;
+  position:absolute;
+  right: 0;
+  bottom: 0;
 }
